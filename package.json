@@ -1,0 +1,71 @@
+{
+  "name": "dsh-select-assist",
+  "displayName": "划词助手",
+  "version": "0.12.0",
+  "description": "DSH plugin: a configurable selection toolbar for any Windows app — reorderable skills, custom prompt skills, first N on the bar and the rest in a dropdown, answered in a native always-on-top overlay. · DeepSeek Harness 划词技能栏：技能可增删/拖拽排序，前 N 个常驻浮条、其余收进下拉；内置动作与自定义提示词技能共用一套浮层。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "companion",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test test/gesture.test.mjs test/panel-zone.test.mjs test/policy.test.mjs test/selection.test.mjs test/companion-manager.test.mjs test/speak-tuning.test.mjs test/skills.test.mjs test/menu-model.test.mjs test/menu-flow.test.mjs test/settings-skills.test.mjs test/link-fetch.test.mjs test/panel-config.test.mjs test/search-web.test.mjs",
+    "check:samples": "node --experimental-strip-types scripts/check-samples.mjs",
+    "verify:screenshots": "node scripts/verify-screenshots.mjs"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "dsh-bundle",
+    "deepseek-harness",
+    "translate",
+    "explain",
+    "summarize",
+    "selection",
+    "text-selection",
+    "overlay",
+    "windows",
+    "划词",
+    "翻译",
+    "解释",
+    "总结"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/germyGao/dsh-select-assist.git"
+  },
+  "homepage": "https://github.com/germyGao/dsh-select-assist#readme",
+  "bugs": {
+    "url": "https://github.com/germyGao/dsh-select-assist/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/react": "~18.3.1",
+    "@types/react-dom": "~18.3.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsdown": "^0.23.0",
+    "typescript": "^5.6.0"
+  }
+}

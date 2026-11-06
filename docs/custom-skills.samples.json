@@ -1,0 +1,85 @@
+{
+  "$comment": "可直接粘进 %DSH_HOME%/dsh-select-assist.json 的 skills 数组；也可以照着在设置页里逐个手建。",
+  "skills": [
+    {
+      "id": "sk_translate_en",
+      "name": "译成英文",
+      "icon": "globe",
+      "kind": "prompt",
+      "prompt": "把选中的中文翻译成自然、地道的英文。\n\n要求：\n- 保留专有名词、代码、数字与原有格式。\n- 只输出英文译文，不要解释、不要加引号、不要重复原文。\n- 如果原文已经是英文，原样返回。\n\n原文：\n{{text}}",
+      "output": "panel",
+      "enabled": true,
+      "deletable": true
+    },
+    {
+      "id": "sk_summary_three",
+      "name": "三行摘要",
+      "icon": "list",
+      "kind": "prompt",
+      "prompt": "用三行总结下面的内容。\n\n要求：\n- 第一行是一句话结论，不超过 40 字。\n- 第二、三行各一条关键信息，以「- 」开头。\n- 只基于原文，不补充背景，不评价好坏。\n\n原文：\n{{text}}\n\n上下文（仅作语境，不要总结）：\n{{context}}",
+      "output": "panel",
+      "enabled": true,
+      "deletable": true
+    },
+    {
+      "id": "sk_todos",
+      "name": "提取待办",
+      "icon": "list",
+      "kind": "prompt",
+      "prompt": "从下面的文字里提取所有待办事项。\n\n要求：\n- 每条一行，格式「- 负责人：事项（截止时间）」，缺失的字段写「-」。\n- 不要编号，不要总结，不要重复原文。\n- 没有任何待办时只输出「无」。\n\n原文：\n{{text}}",
+      "output": "clipboard",
+      "enabled": true,
+      "deletable": true
+    },
+    {
+      "id": "sk_code_review",
+      "name": "代码审查",
+      "icon": "bolt",
+      "kind": "prompt",
+      "prompt": "你是资深工程师，审查选中的代码。\n\n要求：\n- 先用一句话说明这段代码做什么。\n- 再分「问题」与「建议」两节，覆盖正确性、边界条件、性能、可读性。\n- 每条尽量引用一小段代码来定位，不要整段复述。\n- 除非必要不要重写整段代码；需要时只给改动的片段。\n\n代码：\n{{text}}",
+      "output": "panel",
+      "enabled": true,
+      "deletable": true
+    },
+    {
+      "id": "sk_email",
+      "name": "改写成邮件",
+      "icon": "book",
+      "kind": "prompt",
+      "prompt": "把选中的内容改写成一封简短的工作邮件。\n\n要求：\n- 结构：称呼 → 一句话说明来意 → 2~3 条要点 → 明确的下一步 → 结尾。\n- 中文，语气专业但不生硬。\n- 只输出邮件正文。\n\n内容：\n{{text}}",
+      "output": "panel",
+      "enabled": true,
+      "deletable": true
+    },
+    {
+      "id": "sk_commit_message",
+      "name": "提交信息",
+      "icon": "bolt",
+      "kind": "prompt",
+      "prompt": "根据选中的改动说明或 diff，写一条 Conventional Commits 风格的提交信息。\n\n要求：\n- 第一行：type(scope): 50 字以内的摘要。\n- 空一行后写正文，说明「为什么改」与「影响范围」，每行不超过 72 字。\n- 只输出提交信息本身，不要代码块围栏。\n\n内容：\n{{text}}",
+      "output": "clipboard",
+      "enabled": true,
+      "deletable": true
+    },
+    {
+      "id": "sk_term_card",
+      "name": "术语卡片",
+      "icon": "sparkle",
+      "kind": "prompt",
+      "prompt": "把选中的术语做成一张知识卡片。\n\n要求：\n- 一句话定义。\n- 「它解决什么问题」\n- 「常见误区」一条\n- 「相关概念」列出 2~3 个\n用 Markdown 小标题组织，总长不超过 200 字；不要复述原文。\n\n术语：\n{{text}}\n\n上下文（仅作语境）：\n{{context}}",
+      "output": "panel",
+      "enabled": true,
+      "deletable": true
+    },
+    {
+      "id": "sk_polish",
+      "name": "润色",
+      "icon": "wand",
+      "kind": "prompt",
+      "prompt": "润色选中的中文文字，让它更通顺、更准确。\n\n要求：\n- 保留原意与信息量，不增删事实。\n- 保持原有格式（列表、代码、数字）。\n- 只输出润色后的文字，不要解释改了什么；如果原文已经很好，原样返回。\n\n原文：\n{{text}}",
+      "output": "panel",
+      "enabled": true,
+      "deletable": true
+    }
+  ]
+}
